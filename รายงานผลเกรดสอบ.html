@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานผลเกรด</title>
+    <style>
+.container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+
+        } body {
+            font-family: Arial, sans-serif;
+            background-color: #5485b6;
+            margin: 0px;
+        }
+
+        .header {
+            background-color: #2c7be5;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            
+        }
+        .container {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 15px;
+
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 5px 5px 15px;
+            margin: 25px;
+        }
+        .card-2{
+            background:5px  rgb(119, 86, 86);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 15px;
+            
+        }
+        .card-2:hover{
+             transform: scale(1.05);
+        }.card-3 {
+            background: rgb(179, 64, 64);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: rgb(209, 242, 79)5px 3px 3px 2px;
+            margin: 25px;
+
+        }
+        .card-grid1 {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 25px;
+ padding: 10px;}
+ .info{
+background-color: bisque;
+text-align: center;
+border-radius: 5px;
+
+
+ }.info:hover
+ {
+ transform: translateY(-10px);
+ background-color: #2c7be5;
+ }
+ .info-2{
+background-color: bisque;
+text-align: center;
+border-radius: 5px;
+
+
+
+ }.info-2:hover
+ {
+
+ box-shadow: 5px 3px 3px 2px red;
+ }
+
+ .footer {
+            text-align: center;
+            padding: 10px;
+            background: #ddd;
+        }
+        .position.right {
+   justify-content: flex-end;
+ }
+  .profile {
+            display: flex;
+           
+            gap: 20px;
+            justify-content: flex-end;
+             border-radius: 100%;
+        }
+
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            justify-content: flex-end;
+             border-radius: 100%;
+        }
+
+    </style>
+</head>
+<body>
+     <header class="header">
+        <h1>📶รายงานผลเกรด</h1>
+    </header>
+<div class="container"">
+    <!-- หัวข้อ -->
+     <section class="card">
+         
+             
+                <div class="card-grid1">
+
+                    <div class="info">
+                        <p style="font-size: 16px;">👨‍🎓ข้อมูลนักศึกษา</code></p>
+                        <a href="#info"></a>
+                        
+                    </div>
+                    <div class="info">
+                        <p style="font-size: 16px;">📊ผลการเรียน</p>
+                        <a href="#GPA"></a>
+                    
+                    </div>
+                    <div class="info">
+                        <p style="font-size: 16px;">📞ติดต่อ</p>
+                        <a href="#footer"></a>
+                    
+                    </div>
+                </div>
+        
+       
+         </section>
+         <!-- ข้อมูลนักศึกษา -->
+        <section class="card"id="info">
+            <div class="card-2">
+            <h2 id="info"style="font-size: 32px;">👨‍🎓Mr.Watsapot Sriployrung</h2>
+            <ul>
+                <li><strong>📈รหัสนักศึกษา:</strong>      674259012</li>
+                <li><strong>🧑‍💼ชื่อ-นามสกุล:</strong>      วรรษพจน์ ศรีพลอยรุ่ง</li>
+                <li><strong>🎓หมู่เรียน:</strong>         67/50</li>
+                <li><strong>👩‍💼อาจารย์ที่ปรึกษา:</strong>       ผู้ช่วยศาสตราจารย์ ดร. อุษณีย์ ภักดีตระกูลวงศ์ </li>
+                <li><strong>⚙️GIthub: </strong> https://github.com/Watsapot012/  </li>
+            </ul>
+            
+            </div>
+<div class="profile">
+                <img  src="data:image/jpg;base64,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 "
+                    alt="รูปนักศึกษา">
+            </div>
+        </section>
+ <!-- ผลการเรียน -->
+
+        <div class="card-grid1"id="GPA">
+
+                    <div class="info-2">
+                        <p style="font-size: 24px;">ปี 1 เทอม1 :3.52</code></p>
+                       
+                        
+                    </div>
+                    <div class="info-2">
+                        <p style="font-size: 24px;">ปี 1 เทอม2 :3.70</p>
+                        
+                    
+                    </div>
+                    <div class="info-2">
+                        <p style="font-size: 24px;">ปี 2 เทอม1 :3.32</p>
+                       
+                    
+                    </div>
+                </div>
+                <!-- ผลรวมเกรด -->
+        <section class="card-3">
+
+<p style="font-size: 40px;text-align: center; "><strong>🏆เกรดเฉลี่ยสะสม:3.60</strong></p>
+        </section>
+
+</div>
+<a href="index.html">&larr; Back to HTML Tutorial</a>
+
+    <footer class="footer"id="footer">
+        <p style="font-size: 16px;"> 2024 Webmaster By Suksawnat Saelim ID 644230999. </p>
+        <p style="font-size: 16px;"> Nakhon Patthom Rajababhat University </p>
+    </footer>
+</body>
+</html>

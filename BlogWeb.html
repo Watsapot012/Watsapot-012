@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watsapot Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Kanit", "Segoe UI", Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.wrapper {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  /*background-color: aqua;*/
+}
+
+/*=============Header==============*/
+.site-header {
+  background-color: white;
+  padding: 20px 0;
+  border-bottom: 2px solid rgb(88, 87, 87);
+}
+
+.box-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.header-subtitle {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.social-icon a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444444;
+
+  border: 1px solid #313131;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.social-icon a:hover {
+  border-color: #1e8bc3;
+  background-color: #1e8bc3;
+  color: #ffffff;
+
+  transform: translateY(-5px);
+}
+
+a {
+  text-decoration: none;
+  color: #1e8bc3;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*=============Navbar==============*/
+
+.main-nav {
+  background-color: #1e8bc3;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+
+  flex-wrap: wrap;
+  /*gap: 15px;*/
+}
+
+.nav-menu li a {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 400;
+
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav-menu li a:hover {
+  background-color: #035882;
+}
+
+.nav-menu li a.active {
+  background-color: #035882;
+}
+
+/*=============Hero Section==============*/
+
+.hero-content {
+  background-color: #c4bfbf;
+  padding: 30px 0;
+  box-shadow: 0 4px 15px rgb(145, 145, 145);
+  margin-bottom: 30px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #313131;
+
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 15px;
+
+  /*
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  */
+}
+
+.hero-item {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+
+  transition: all 0.3s ease;
+}
+
+.hero-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.hero-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.hero-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.hero-item .read-more {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e8bc3;
+
+  display: inline-block;
+}
+
+.hero-item .read-more:hover {
+  color: #764ba2;
+  text-decoration: none;
+}
+
+.hero-item .read-more::after {
+  content: "→";
+  margin-left: 5px;
+
+  transition: margin-left 0.3s ease;
+}
+
+.hero-item .read-more:hover::after {
+  margin-left: 10px;
+}
+
+/*=============Page Section==============*/
+.content-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /*background-color: #035882;*/
+  gap: 20px;
+}
+
+/* POSTS =========Main Left==========*/
+
+.card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgb(182, 181, 181);
+}
+
+.card+.card {
+  margin-top: 5px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-circle {
+  width: 55px;
+  height: 55px;
+  background-color: #3b50ce;
+  border-radius: 50%;
+
+  font-size: 0.65rem;
+  color: white;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.date-day {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-header-line {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.post-footer {
+  color: #555;
+  font-size: 0.65rem;
+
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+}
+
+/*=========card Image==========*/
+.post-img {
+  height: 200px;
+  overflow: hidden;
+
+
+  margin: 15px 0;
+}
+
+.post-img img {
+
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.post-detail {
+  color: #555;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/*=========Table style==========*/
+
+.table-description {
+  font-size: 0.84;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+
+  /* border: 2px solid #fc2525; */
+  /* border-collapse: collapse; */
+  overflow: hidden;
+}
+
+.comparison-table th {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+
+  text-align: left;
+  padding: 15px;
+}
+
+.comparison-table td {
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 12px 15px;
+}
+
+.comparison-table tr:nth-child(even) td {
+  background-color: #f8f9fa;
+}
+
+.comparison-table tr:hover td {
+  background-color: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+.comparison-table .feature {
+  font-weight: 600;
+  color: #333;
+  background-color: #f0f4f8;
+}
+
+.comparison-table .pro {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.comparison-table .con {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.comparison-table .neutral {
+  color: #6c757d;
+}
+
+/* --- Form for Left side --- */
+
+/* ---------- Title ---------- */
+.contact-title {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Container ของฟอร์ม ---------- */
+.contact-form-main {
+  /* max-width: 600px; */
+  width: 95%;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  background: #fff;
+  padding: 40px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+/* ---------- Layout ของแถว/กลุ่ม ---------- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-row.full-width {
+  grid-template-columns: 1fr;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* ---------- Label ---------- */
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ---------- Controls (input/select/textarea) ---------- */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+
+  /* transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+transform 0.2s ease; */
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+
+.contact-form-main .form-input,
+.contact-form-main .form-select,
+.contact-form-main .form-textarea {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  color: #333;
+}
+
+
+.contact-form-main .form-input:focus,
+.contact-form-main .form-select:focus,
+.contact-form-main .form-textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.18);
+  transform: translateY(-1px);
+}
+
+
+.form-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+
+.contact-form-main .checkbox-item {
+  color: #333;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.15);
+  accent-color: #ff6b6b;
+}
+
+
+.form-button {
+  width: 100%;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+
+  /* transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; */
+}
+
+
+.contact-form-main .form-button {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.contact-form-main .form-button:hover {
+  background: linear-gradient(45deg, #5a67d8, #6b46c1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar .widget {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #dee3ea;
+  padding: 15px;
+}
+
+.widget-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.widget p {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.author-photo {
+  width: 100%;
+  height: 140px;
+  background: #d9e3f0;
+  margin: 8px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  color: #555;
+}
+
+.btn-facebook {
+  background: #3b5998;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  margin-top: 5px;
+
+  display: inline-block;
+  padding: 6px 10px;
+}
+
+
+
+
+
+
+.sidebar .widget.subscribe-widget{
+  background: linear-gradient(180deg,#19b37f,#2ed573);
+  color:white;
+  border-radius:14px;
+ box-shadow: 0 0 10px rgba(39, 37, 37, 0.18);
+  padding:25px;
+}
+
+
+.sidebar .widget.contact-widget{
+  background: linear-gradient(180deg,#6c7cff,#6a35d4);
+  color:white;
+  border-radius:14px;
+  box-shadow: 0 0 10px rgba(39, 37, 37, 0.18);
+  padding:25px;
+}
+
+
+.sidebar .widget.subscribe-widget h3,
+.sidebar .widget.contact-widget h3{
+  font-size:20px;
+  margin-bottom:18px;
+}
+
+
+.sidebar .widget.subscribe-widget label,
+.sidebar .widget.contact-widget label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+
+.sidebar .widget.subscribe-widget input,
+.sidebar .widget.subscribe-widget select,
+.sidebar .widget.contact-widget input,
+.sidebar .widget.contact-widget select,
+.sidebar .widget.contact-widget textarea{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:14px;
+  border:none;
+  border-radius:10px;
+  background:#e9edf0;
+  font-size:14px;
+  outline:none;
+}
+
+
+.sidebar .widget.contact-widget textarea{
+  height:95px;
+  resize:none;
+}
+
+
+.sidebar .widget input:focus,
+.sidebar .widget select:focus,
+.sidebar .widget textarea:focus{
+  box-shadow:0 0 0 3px rgba(255,255,255,.35);
+}
+
+
+.btn-gradient{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(45deg,#ff7e7e,#ffb199);
+  color:white;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn-gradient:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.bg-sub{
+  background:#ffffff;
+  padding:20px;
+  border-radius:10px;
+  
+}
+
+.text-con{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:15px;
+  text-align: center;
+}
+.text-sub{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:15px;
+  text-align: center;
+}
+
+.bg-box{
+  background:#f0f4f8;
+  padding:15px;
+  border-radius:8px;
+  margin-top:10px;
+
+  text-align: center;
+}
+
+.sponsor-box{
+  background:#cfcfcf;
+  height:250px;
+  border-radius:6px;
+  margin-top:10px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#555;
+  font-size:14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer{
+  background: linear-gradient(90deg,#10151c,#1a1f28);
+  color:#bfc5ce;
+  margin-top:40px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  text-align:center;
+  font-size:12px;
+}
+
+.footer-inner p{
+  margin:4px 0;
+}
+
+.footer-inner a{
+  color:#7fb6ff;
+  text-decoration:none;
+}
+
+.footer-inner a:hover{
+  text-decoration:underline;
+}
+
+
+
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="wrapper">
+            <div class="box-header-inner">
+                <div class="header-inner">
+                    <h2 class="header-title">Watsapot Blog by tle</h2>
+                    <p class="header-subtitle">รวมเนื้อหาเกี่ยวกับเทคโนโลยี AI น่าสนใจ</p>
+                </div>
+                <div class="social-icon">
+                    <a href="">f</a>
+                    <a href="">t</a>
+                    <a href="">in</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="wrapper">
+            <ul class="nav-menu">
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="">AI Technology</a></li>
+                <li><a href="">Machine Learning</a></li>
+                <li><a href="">Deep Learning</a></li>
+                <li><a href="">AI Tools</a></li>
+                <li><a href="">AI News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <Section class="hero-content">
+        <div class="wrapper">
+
+            <h2 class="hero-title">🚀 เนื้อหาแนะนำสำหรับคุณ</h2>
+
+            <div class="hero-grid">
+                <div class="hero-item">
+                    <h3>💡 เทคนิค CSS Grid ที่ทุกคนควรรู้</h3>
+                    <p>เรียนรู้วิธีใช้ CSS Grid Layout เพื่อสร้างเลย์เอาต์ที่ซับซ้อนและยืดหยุ่น
+                        พร้อมตัวอย่างการใช้งานจริง และเทคนิคขั้นสูงที่จะทำให้เว็บไซต์ของคุณโดดเด่น
+                    </p>
+                    <a href="" class="read-more">อ่านเพิ่มเติม</a>
+                </div>
+                <div class="hero-item">
+                    <h3>🎨 การออกแบบ UI/UX ที่ใช้งานง่าย
+                    </h3>
+                    <p>หลักการออกแบบส่วนติดต่อผู้ใช้ที่ดี เริ่มตั้งแต่การเลือกสีที่เหมาะสม การจัดวาง Typography
+                        และการสร้างประสบการณ์ผู้ใช้ที่น่าประทับใจ
+                    </p>
+                    <a href="" class="read-more">เรียนรู้เพิ่มเติม</a>
+                </div>
+                <div class="hero-item">
+                    <h3>⚡ การปรับปรุงประสิทธิภาพเว็บไซต์
+                    </h3>
+                    <p>เทคนิคการทำให้เว็บไซต์โหลดเร็วขึ้น ตั้งแต่การ optimize รูปภาพ การใช้ CDN การ minify code
+                        และการวัดผลประสิทธิภาพด้วยเครื่องมือต่างๆ
+                    </p>
+                    <a href="" class="read-more">ดูรายละเอียด</a>
+                </div>
+                <div class="hero-item">
+                    <h3>🔥 JavaScript ES6+ ที่ควรรู้
+                    </h3>
+                    <p>ฟีเจอร์ใหม่ๆ ของ JavaScript ที่จะทำให้การเขียนโค้ดของคุณทันสมัยและมีประสิทธิภาพมากขึ้น เช่น Arrow
+                        Functions, Async/Await, Destructuring และอื่นๆ
+                    </p>
+                    <a href="" class="read-more">เริ่มเรียน</a>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <div class="wrapper">
+            <main class="content-layout">
+                <!-- Left Sidebar -->
+
+                <div class="post-list">
+                    <!-- card 01 -->
+                    <section class="card">
+                        <p class="card-header-line">
+                            CATEGORY ARCHIVES: <strong>RESPONSIVE DESIGN</strong>
+                        </p>
+
+                        <article>
+                            <header class="post-header">
+                                <h2 class="post-title">คำสั่ง CSS สำคัญสำหรับการเขียนเว็บ Responsive</h2>
+                                <div class="date-circle">
+                                    <span class="date-day">30</span>
+                                    <span>AUG</span>
+                                </div>
+                            </header>
+                            <div class="post-img"><img
+                                    src="https://chillchilljapan.com/wp-content/uploads/2019/06/shutterstock_1276450444-650x434.jpg"
+                                    alt="รูปซากุระ"></div>
+                            <p class="post-detail">รวมคำสั่ง CSS ที่จำเป็นสำหรับการสร้างเว็บไซต์ที่รองรับทุกขนาดหน้าจอ
+                                เริ่มจาก media queries, flexbox, grid layout และเทคนิคการใช้ viewport units
+                                เพื่อให้เว็บของคุณดูดีในทุกอุปกรณ์ …</p>
+                            <span>|</span>
+                            <a href=""> read more</a>
+
+                            <div class="post-footer">
+                                <span>Tags:</span>
+                                <a href="">responsive design</a>
+                                <span>•</span>
+                                <a href="">media queries</a>
+                                <span>•</span>
+                                <a href="">flexbox</a>
+                                <span>•</span>
+                                <a href="">CSS grid</a>
+                            </div>
+                        </article>
+
+                    </section>
+
+                    <!-- card 02 -->
+                    <section class="card">
+                        <p class="card-header-line">
+                            CATEGORY ARCHIVES: <strong>CSS DISPLAY PROPERTY</strong>
+                        </p>
+
+                        <article>
+                            <header class="post-header">
+                                <h2 class="post-title">เปรียบเทียบ display: block vs inline-block</h2>
+                                <div class="date-circle">
+                                    <span class="date-day">28</span>
+                                    <span>AUG</span>
+                                </div>
+                            </header>
+                            <p class="post-detail">ตารางด้านล่างแสดงความแตกต่างระหว่าง display: block และ display:
+                                inline-block เพื่อช่วยให้เข้าใจการเลือกใช้ display property ที่เหมาะสม</p>
+
+
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25%;">คุณสมบัติ</th>
+                                        <th style="width: 37.5%;">display: block</th>
+                                        <th style="width: 37.5%;">display: inline-block</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="feature">การจัดเรียงองค์ประกอบ</td>
+                                        <td class="neutral">📦 แต่ละตัวอยู่บรรทัดใหม่</td>
+                                        <td class="pro">✅ เรียงต่อกันในบรรทัดเดียว</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">ความกว้างเริ่มต้น</td>
+                                        <td class="con">❌ กินพื้นที่เต็มความกว้าง (100%)</td>
+                                        <td class="pro">✅ ตามเนื้อหาภายใน (auto)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">การกำหนด width และ height</td>
+                                        <td class="pro">✅ กำหนดได้ทั้ง width และ height</td>
+                                        <td class="pro">✅ กำหนดได้ทั้ง width และ height</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">margin และ padding</td>
+                                        <td class="pro">✅ ใช้ได้ครบทุกทิศทาง</td>
+                                        <td class="pro">✅ ใช้ได้ครบทุกทิศทาง</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">vertical-align</td>
+                                        <td class="con">❌ ไม่มีผลกับ block element</td>
+                                        <td class="pro">✅ สามารถใช้ได้ (top, middle, bottom)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">ช่องว่างระหว่างองค์ประกอบ</td>
+                                        <td class="neutral">🚫 ไม่มีปัญหาช่องว่าง</td>
+                                        <td class="con">❌ มีช่องว่างจาก whitespace ใน HTML</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature">การใช้งานที่เหมาะสม</td>
+                                        <td class="pro">📄 div, section, header, footer</td>
+                                        <td class="pro">🎯 navigation menu, button groups</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                            <div class="post-footer">
+                                <span>Tags:</span>
+                                <a href="">CSS</a>
+                                <span>•</span>
+                                <a href="">display property</a>
+                            </div>
+                        </article>
+
+
+
+                    </section>
+                    <!-- card 03 -->
+                    <div class="card">
+                        <h2 class="contact-title">📞ติดต่อเรา</h2>
+                        <div class="contact-form-main">
+                            <form id="contactForm" action="" method="">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">ชื่อ *</label>
+                                        <input type="text" name="firstName" class="form-input" placeholder="ชื่อจริง"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">นามสกุล *</label>
+                                        <input type="text" name="lastName" class="form-input" placeholder="นามสกุล"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">อีเมล *</label>
+                                        <input type="email" name="email" class="form-input"
+                                            placeholder="example@email.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">เบอร์โทรศัพท์</label>
+                                        <input type="tel" name="phone" class="form-input" placeholder="080-123-4567">
+                                    </div>
+                                </div>
+                                <div class="form-row full-width">
+                                    <div class="form-group">
+                                        <label class="form-label">บริษัท/องค์กร</label>
+                                        <input type="text" name="company" class="form-input"
+                                            placeholder="ชื่อบริษัทของคุณ">
+                                    </div>
+                                </div>
+                                <div class="form-row full-width">
+                                    <div class="form-group">
+                                        <label class="form-label">หัวข้อที่สนใจ *</label>
+                                        <select name="subject" class="form-select" required>
+                                            <option value="" disabled selected>เลือกหัวข้อ</option>
+                                            <option value="web-development">การพัฒนาเว็บไซต์</option>
+                                            <option value="ai-consultation">ปรึกษาเรื่อง AI</option>
+                                            <option value="startup-advice">คำแนะนำ Startup</option>
+                                            <option value="collaboration">ความร่วมมือทางธุรกิจ</option>
+                                            <option value="other">อื่นๆ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row full-width">
+                                    <div class="form-group">
+                                        <label class="form-label">รายละเอียด *</label>
+                                        <textarea name="message" class="form-input form-textarea"
+                                            placeholder="โปรดอธิบายรายละเอียดที่ต้องการปรึกษา..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row full-width">
+                                    <div class="form-group">
+                                        <label class="form-label">ความสนใจเพิ่มเติม</label>
+                                        <div class="form-checkbox-group">
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" name="interests[]" value="newsletter">
+                                                <span>ต้องการรับข่าวสารทาง email</span>
+                                            </div>
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" name="interests[]" value="consultation">
+                                                <span>สนใจบริการปรึกษา</span>
+                                            </div>
+                                            <div class="checkbox-item">
+                                                <input type="checkbox" name="interests[]" value="partnership">
+                                                <span>สนใจความร่วมมือ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="form-button">📨 ส่งข้อความ</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="sidebar">
+                    <div class="widget">
+                        <div class="widget-title">สวัสดีครับ ยินดีต้อนรับ</div>
+                        <p>
+                            ผมชื่อ Suksawat เขียนบล็อกเกี่ยวกับ Startup การตลาด การเขียนโปรแกรม
+                            และเทคโนโลยี AI สำหรับ SME และ Startup
+                        </p>
+                        <div class="author-photo">รูปผู้เขียน</div>
+                        <a href="#" class="btn-facebook">กดติดตามใน Facebook</a>
+                    </div>
+                    <div class="bg-sub">
+                        <div class="widget subscribe-widget">
+                            <h3 class="text-sub">📧 รับข่าวสารใหม่</h3>
+                            <form action="" method="">
+                                <label>ชื่อของคุณ</label>
+                                <input type="text" name="name" placeholder="ใส่ชื่อของคุณ" required>
+                                <label>อีเมล</label>
+                                <input type="email" name="email" placeholder="example@email.com" required>
+                                <label>สนใจเนื้อหาแบบไหน</label>
+                                <select name="interest">
+                                    <option>ทุกหัวข้อ</option>
+                                    <option>AI</option>
+                                    <option>Web Dev</option>
+                                    <option>Startup</option>
+                                </select>
+                                <button type="submit" class="btn-gradient">🚀 สมัครเลย</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="bg-sub">
+                        <div class="widget contact-widget">
+                            <h3 class="text-con">💬 ติดต่อด่วน</h3>
+                            <form action="" method="">
+                                <label>ชื่อ</label>
+                                <input type="text" name="name" placeholder="ชื่อของคุณ" required>
+                                <label>เรื่องที่ต้องการติดต่อ</label>
+                                <select name="topic">
+                                    <option>เลือกเรื่องที่ติดต่อ</option>
+                                    <option>จ้างงาน</option>
+                                    <option>ปรึกษา</option>
+                                    <option>สอบถามทั่วไป</option>
+                                </select>
+                                <label>ข้อความสั้นๆ</label>
+                                <textarea name="message" placeholder="อธิบายสั้นๆ..." required></textarea>
+                                <button type="submit" class="btn-gradient">🚀 ส่งเลย</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    
+                        <div class="card"><b>wuttichai</b>
+                            <div class="bg-box">
+                                <p>กล่อง Facebook Like (ตัวอย่าง)
+                                203,779 คนถูกใจ
+                                </p>
+                                </div> 
+
+                    </div>
+                    
+                    <div class="card"><b>Sponsor</b>
+                        <div class="sponsor-box">พื้นที่โฆษณา / วิดีโอ</div>
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    </div>
+
+<a href="index.html">← Back to HTML Tutorial</a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2025 Suksawat — All rights reserved.</p>
+            <p>Designed for educational/demo purposes • <a href="">Contact</a>
+            </p>
+        </div>
+</footer>
+
+</body>
+
+</html>

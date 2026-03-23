@@ -716,7 +716,134 @@ transform 0.2s ease; */
 .footer-inner a:hover{
   text-decoration:underline;
 }
+@media (max-width: 922px) {
+  .site-header {
+    background-color: #e0ee1a;
+  }
+}
 
+@media (max-width: 768px) {
+  .site-header {
+    background-color: #28a745;
+  }
+
+  .hero-grid,
+  .content-layout,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-checkbox-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .nav-menu li a {
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+  }
+}
+
+/*ซ่อน hamburger บนจอใหญ่*/
+#burger-menu {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .site-header {
+    background-color: #da33e9;
+  }
+
+  /* กำหนดขนาด/พื้นที่ของปุ่ม*/
+  #burger-menu {
+    display: block;
+    height: 25px;
+    width: 30px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  /* วาดเส้น3ขีดด้วย span+pseudo elements*/
+  #burger-menu span,
+  #burger-menu span::before,
+  #burger-menu span::after {
+    background-color: #fff;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    display: block;
+    transition: all 0.3s ease;
+    content: "";
+  }
+  /*จัดตำแหน่ง 3 เส้น (บน/กลาง/ล่าง)*/
+  #burger-menu span {
+    top: 11px;
+  }
+  #burger-menu span::before {
+    top: -8px;
+  }
+  #burger-menu span::after {
+    top: 8px;
+  }
+
+  /* Animation เมื่อกด */
+
+  /* ทำให้เส้น “กลาง” หายไป (โปร่งใส) */
+  #burger-menu.close span {
+    background: transparent;
+  }
+
+  /* เส้นบน rotate(45deg) หมุนเฉียงไปทางขวา */
+  /* top: 0; ทำให้ทั้งสองเส้น “มาซ้อนกันตรงกลาง” ก่อนหมุน */
+  #burger-menu.close span:before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  /* เส้นล่าง rotate(-45deg) หมุนเฉียงไปทางซ้าย */
+  #burger-menu.close span:after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /*ซ่อนเมนู*/
+
+  #menu {
+    display: none;
+    flex-direction: column;
+    background: #035882;
+  }
+
+  /*เปิดเมนูเมื่อ active แสดงเมนูขึ้นมา*/
+  #menu.overlay {
+    display: flex;
+  }
+
+  /*สลับตำแหน่งของ card เนื้อหา*/
+
+  /*เรียงลำดับใหม่ด้วย order กรณีที่ต้องการเปลี่ยนลำดับของ widget ใน sidebar หรือโพสต์ใน post-list โดยไม่ต้องแก้ html*/
+
+  /*ค่า ลบ ตัว ลบ มากสุด จะอยู่บนสุด*/
+.order-image{ order:3}
+
+.order-table{order:1}
+
+.order-form{ order:2}
+
+
+/*ค่าบวก ตัวบวกน้อยสุด จะอยู่บนสุด*/
+.order-widget01{order:1}
+.order-widget02{order:2}
+.order-widget03{order:3}
+.order-widget04{order:4}
+.order-widget05{order:5}
+
+
+}
 
 
 </style>
